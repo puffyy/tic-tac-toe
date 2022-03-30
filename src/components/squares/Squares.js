@@ -7,9 +7,10 @@ const Squares = (props) => {
     <button
       className="btn"
       onClick={props.onClick}
-  return <button className="btn">{props.value}</button>;
+      disabled={typeof props.value === "string" || props.disabled}
+    >
       {props.value !== null ? (
-        <img src={props.value === "X" ? icon_x : icon_o} />
+        <img src={props.value === "X" ? icon_x : icon_o} alt="game variables" />
       ) : null}
     </button>
   );
