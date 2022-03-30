@@ -6,10 +6,17 @@ import "./game.css";
 const Game = () => {
   const { gameState, gameDispatch } = useContext(GameContext);
 
-  console.log("9", gameState);
+  const handleClick = (i) => {
+    gameDispatch({
+      type: "MOVE",
+      payload: gameState.xPlayerTurn ? "X" : "O",
+      index: i,
+    });
+  };
+
   return (
     <div id="game">
-      <Board squares={gameState.squares} />
+      <Board squares={gameState.squares} onClick={(i) => handleClick(i)} />
     </div>
   );
 };

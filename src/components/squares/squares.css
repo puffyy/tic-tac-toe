@@ -3,4 +3,22 @@
   border-radius: 1rem;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+
+img {
+  width: 6rem;
+}
+
+.btn:hover {
+  background: radial-gradient(ellipse at top, #e6abab, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, #a6cf85, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, transparent),
+    radial-gradient(circle at 50% 0%, #cceefa, #f7e7f4, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, #a6cf85, transparent);
+  transform: scale(1.1);
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
