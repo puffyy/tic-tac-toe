@@ -5,7 +5,7 @@ import icon_o from "../../assets/images/oPlayer.svg";
 const Squares = (props) => {
   return (
     <button
-      className="btn"
+      className={"btn " + (props.highlight ? "highlight" : "")}
       onClick={props.onClick}
       disabled={typeof props.value === "string" || props.disabled}
     >

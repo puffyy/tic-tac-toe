@@ -3,6 +3,8 @@ import { GameContext } from "../../store/GameContext";
 import Board from "../board/Board";
 import "./game.css";
 
+var winnerArr;
+
 const winnerPattern = [
   [0, 1, 2],
   [3, 4, 5],
@@ -19,6 +21,7 @@ const calculateWinner = (squares) => {
   for (let i = 0; i < winnerPattern.length; i++) {
     const [a, b, c] = winnerPattern[i];
     if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c]) {
+      winnerArr = winnerPattern[i];
       return squares[a];
     }
     if (!squares[a] || !squares[b] || !squares[c]) {
@@ -57,6 +60,7 @@ const Game = () => {
         squares={gameState.squares}
         onClick={(i) => handleClick(i)}
         disabled={winner}
+        winnerArr={winnerArr}
       />
     </div>
   );
