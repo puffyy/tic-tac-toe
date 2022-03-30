@@ -3,15 +3,87 @@
 #game {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  align-content: center;
-  min-width: max-content;
-  width: 100vw;
-  min-height: max-content;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
+  margin: 5rem auto;
+  width: max-content;
   font-family: "Pompiere", cursive;
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+#player-board {
+  display: flex;
+  justify-content: space-between;
+}
+
+.active-player {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background: radial-gradient(ellipse at top, #e6abab, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, #a6cf85, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, transparent),
+    radial-gradient(circle at 50% 0%, #cceefa, #f7e7f4, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, #a6cf85, transparent);
+  color: rgb(80, 80, 68);
+}
+
+.passive-player {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 4px;
+  background-color: white;
+  color: rgb(121, 122, 93);
+}
+
+.player {
+  margin: auto 0 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  cursor: default;
+}
+
+#game-board {
+  display: none;
+  flex-direction: column;
+}
+
+#welcome {
+  padding: 3rem;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background: radial-gradient(ellipse at top, #e6abab, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, #a6cf85, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, transparent),
+    radial-gradient(circle at 50% 0%, #cceefa, #f7e7f4, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, #a6cf85, transparent);
+  color: rgb(80, 80, 68);
+}
+
+#player-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin-left: 1rem;
+  padding: 0.25rem;
+}
+
+input,
+button {
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+#form-button {
+  margin-top: 3rem;
+  padding: 0.5rem 2rem;
+  font-family: "Pompiere", cursive;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+#form-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px inset;
 }

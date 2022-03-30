@@ -1,3 +1,29 @@
+input,
+button {
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+input:hover,
+button:hover {
+  transform: scale(1.1);
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+input:focus {
+  transform: scale(1.1);
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
 .highlight {
   background: radial-gradient(ellipse at top, #e6abab, transparent),
     radial-gradient(ellipse at bottom, #a6cf85, #a6cf85, transparent),

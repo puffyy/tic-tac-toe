@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { GameContext } from "../../store/GameContext";
 import Board from "../board/Board";
 import "./game.css";
@@ -36,6 +36,13 @@ const calculateWinner = (squares) => {
 
 const Game = () => {
   const { gameState, gameDispatch } = useContext(GameContext);
+  const [xPlayerName, setxPlayerName] = useState("");
+  const [oPlayerName, setoPlayerName] = useState("");
+
+  const onChange = (e, setState) => {
+    e.preventDefault();
+    setState(e.target.value);
+  };
 
   const handleClick = (i) => {
     gameDispatch({
@@ -50,18 +57,84 @@ const Game = () => {
   const status = winner
     ? winner === "D"
       ? "D"
-      : "Winner is" + winner
-    : `${gameState.xPlayerTurn ? "X" : "O"} player turn`;
+      : "Winner is" + winner === "X"
+      ? gameState.xPlayerName
+      : gameState.oPlayerName
+    : `${
+        gameState.xPlayerTurn ? gameState.xPlayerName : gameState.oPlayerName
+      } player turn`;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    gameDispatch({
+      type: "PLAYERS",
+      payload: { xPlayerName: xPlayerName, oPlayerName: oPlayerName },
+    });
+
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("game-board").style.display = "flex";
+  };
 
   return (
     <div id="game">
-      <div>{status}</div>
-      <Board
-        squares={gameState.squares}
-        onClick={(i) => handleClick(i)}
-        disabled={winner}
-        winnerArr={winnerArr}
-      />
+      <div id="welcome">
+        <h1>Tic Tac Toe</h1>
+        <form id="player-form" onSubmit={(e) => handleSubmit(e)}>
+          <div>
+            <label htmlFor="xPlayerName">X Player Name:</label>
+            <input
+              id="xPlayerName"
+              placeholder="X"
+              onChange={(e) => onChange(e, setxPlayerName)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="oPlayerName">O Player Name:</label>
+            <input
+              id="xPlayerName"
+              placeholder="O"
+              onChange={(e) => onChange(e, setoPlayerName)}
+              required
+            />
+          </div>
+          <button id="form-button" type="submit" form="player-form">
+            Let's Play
+          </button>
+        </form>
+      </div>
+      <div id="game-board">
+        <div id="player-board">
+          <div
+            id="xPlayer"
+            className={
+              ((typeof winner !== "string" && gameState.xPlayerTurn) ||
+              winner === "X"
+                ? "active-player "
+                : "passive-player ") + "player"
+            }
+          >
+            {gameState.xPlayerName}
+          </div>
+          <div
+            id="oPlayer"
+            className={
+              ((typeof winner !== "string" && !gameState.xPlayerTurn) ||
+              winner === "O"
+                ? "active-player "
+                : "passive-player ") + "player"
+            }
+          >
+            {gameState.oPlayerName}
+          </div>
+        </div>
+        <Board
+          squares={gameState.squares}
+          onClick={(i) => handleClick(i)}
+          disabled={winner}
+          winnerArr={winnerArr}
+        />
+      </div>
     </div>
   );
 };
