@@ -180,7 +180,9 @@ const Game = () => {
           status === null ? "hide-congrats" : "show-congrats highlight"
         }
       >
-        {status}
+        {status !== "D" && xPlayerName !== "D" && oPlayerName !== "D"
+          ? status
+          : "Tied! Let's try again"}
         <button id="new-game-btn" onClick={() => window.location.reload()}>
           New Game
         </button>
