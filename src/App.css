@@ -56,7 +56,8 @@ article {
   display: flex;
   margin: 5rem auto;
   text-align: center;
-  width: 20rem;
+  min-width: 10rem;
+  width: 25%;
   padding: 5rem 2rem;
   border-radius: 1rem;
   background: radial-gradient(ellipse at top, #e6abab, transparent),
