@@ -82,6 +82,7 @@ article {
   width: 100vw;
   height: 100vh;
   font-size: 5rem;
+  text-align: center;
 }
 
 #new-game-btn {
