@@ -34,6 +34,14 @@ const calculateWinner = (squares) => {
   return null;
 };
 
+const closeHowToPlay = () => {
+  return (document.getElementById("article-container").style.display = "none");
+};
+
+const openHowToPlay = () => {
+  return (document.getElementById("article-container").style.display = "flex");
+};
+
 const Game = () => {
   const { gameState, gameDispatch } = useContext(GameContext);
   const [xPlayerName, setxPlayerName] = useState("");
@@ -98,10 +106,43 @@ const Game = () => {
               required
             />
           </div>
-          <button id="form-button" type="submit" form="player-form">
-            Let's Play
-          </button>
+          <div id="main-buttons">
+            <button
+              id="details-button"
+              className="options"
+              type="button"
+              onClick={() => openHowToPlay()}
+            >
+              How to Play
+            </button>
+            <button
+              id="form-button"
+              className="options"
+              type="submit"
+              form="player-form"
+            >
+              Let's Play
+            </button>
+          </div>
         </form>
+      </div>
+      <div id="article-container">
+        <span>
+          <button
+            id="close-button"
+            type="button"
+            onClick={() => closeHowToPlay()}
+          >
+            X
+          </button>
+          <article>
+            Tic-tac-toe (also known as Noughts and crosses or Xs and Os) is a
+            paper-and-pencil game for two players, X and O, who take turns
+            marking the spaces in a 3×3 grid. The player who succeeds in placing
+            three of their marks in a horizontal, vertical, or diagonal row wins
+            the game.
+          </article>
+        </span>
       </div>
       <div id="game-board">
         <div id="player-board">

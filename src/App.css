@@ -5,6 +5,7 @@ button {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
   outline: none;
+  font-family: "Pompiere", cursive;
 }
 
 input:hover,
@@ -22,6 +23,38 @@ input:focus {
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+}
+
+#article-container {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+}
+
+#close-button {
+  width: 2rem;
+  font-weight: bolder;
+  line-height: 1.5rem;
+  padding-top: 0.3rem;
+}
+
+article {
+  display: flex;
+  margin: auto;
+  text-align: center;
+  width: 20rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: radial-gradient(ellipse at top, #e6abab, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, #a6cf85, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, transparent),
+    radial-gradient(circle at 50% 0%, #cceefa, #f7e7f4, transparent),
+    radial-gradient(ellipse at bottom, #a6cf85, #a6cf85, transparent);
 }
 
 .highlight {

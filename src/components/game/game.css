@@ -45,6 +45,7 @@
 
 #welcome {
   padding: 3rem;
+  width: 25rem;
   text-align: center;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -54,6 +55,7 @@
     radial-gradient(circle at 50% 0%, #cceefa, #f7e7f4, transparent),
     radial-gradient(ellipse at bottom, #a6cf85, #a6cf85, transparent);
   color: rgb(80, 80, 68);
+  cursor: default;
 }
 
 #player-form {
@@ -67,23 +69,16 @@ input {
   padding: 0.25rem;
 }
 
-input,
-button {
-  border-radius: 1rem;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  cursor: pointer;
-  outline: none;
-}
-
-#form-button {
+.options {
   margin-top: 3rem;
   padding: 0.5rem 2rem;
-  font-family: "Pompiere", cursive;
   font-weight: bold;
   font-size: 1.25rem;
 }
 
-#form-button:hover {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px inset;
+#main-buttons {
+  display: flex;
+  justify-content: space-between !important;
+  width: 100%;
+  height: min-content;
 }
