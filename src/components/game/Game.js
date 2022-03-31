@@ -65,12 +65,10 @@ const Game = () => {
   const status = winner
     ? winner === "D"
       ? "D"
-      : "Winner is" + winner === "X"
-      ? gameState.xPlayerName
-      : gameState.oPlayerName
-    : `${
-        gameState.xPlayerTurn ? gameState.xPlayerName : gameState.oPlayerName
-      } player turn`;
+      : "Congratulations " +
+        (winner === "X" ? gameState.xPlayerName : gameState.oPlayerName) +
+        " !"
+    : null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -175,6 +173,17 @@ const Game = () => {
           disabled={winner}
           winnerArr={winnerArr}
         />
+      </div>
+      <div
+        id="congratulations"
+        className={
+          status === null ? "hide-congrats" : "show-congrats highlight"
+        }
+      >
+        {status}
+        <button id="new-game-btn" onClick={() => window.location.reload()}>
+          New Game
+        </button>
       </div>
     </div>
   );
